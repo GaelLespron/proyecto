@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Galería</h1>
+    </header>
+    <nav>
+        <ul class="menu">
+        <li><a href="index.html">Inicio</a></li>
+       <li><a href="hmtl2.html">Vida Personal</a></li>
+        <li><a href="html3.html">Impacto</a></li>
+        <li><a href=".html">Galería</a></li>
+        </ul>
+    </nav>
+    <section class="gallery">
+        <h2>Galería de Trabajos Realizados</h2>
+        <div class="gallery-container">
+            <div class="gallery-item"><img src="pachangas.png" alt="Trabajo 1"></div>
+            <div class="gallery-item"><img src="caso de uso.png" alt="Trabajo 2"></div>
+            <div class="gallery-item"><img src="noc.png" alt="Trabajo 3"></div>
+            <div class="gallery-item"><img src="cv.png" alt="Trabajo 4"></div>
+            <div class="gallery-item"><img src="elearnimng.png" alt="Trabajo 5"></div>
+            <div class="gallery-item"><img src="c++.png" alt="Trabajo 6"></div>
+            <div class="gallery-item"><img src="diagramadflujo.png" alt="Trabajo 7"></div>
+            <div class="gallery-item"><img src="aaa.png" alt="Trabajo 8"></div>
+            <div class="gallery-item"><img src="proyrct.png" alt="Trabajo 9"></div>
+            <div class="gallery-item"><img src="tabla.png" alt="Trabajo 10"></div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("RCJjmcjyBXGiCAyRD"); // Reemplaza con tu User ID de EmailJS
+    })();
+</script>
+
+<div id="formulario-container">
+    <h2>Formulario</h2>
+    <form id="miFormulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="resultado" style="display: none; color: green;">Formulario enviado correctamente.</p>
+</div>
+
+<script>
+    const formulario = document.getElementById("miFormulario");
+
+    formulario.addEventListener("submit", function(e) {
+        e.preventDefault(); // Evita que se recargue la página
+
+        const nombre = document.getElementById("nombre").value;
+        const email = document.getElementById("email").value;
+        const mensaje = document.getElementById("mensaje").value;
+
+        // Envía el correo usando EmailJS
+        emailjs.send("22190736", "template_xqbl6ge", {
+            nombre: nombre,
+            email: email,
+            mensaje: mensaje
+        }).then(function(response) {
+            console.log("Correo enviado:", response);
+            document.getElementById("resultado").style.display = "block";
+        }, function(error) {
+            console.error("Error al enviar:", error);
+            alert("Ocurrió un error al enviar el formulario.");
+        });
+    });
+</script>
+
+
+</body>
+</html>
